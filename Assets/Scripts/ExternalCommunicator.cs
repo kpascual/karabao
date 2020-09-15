@@ -29,12 +29,13 @@ public class ExternalCommunicator : MonoBehaviour
     void SendTelemetry()
     {
         CarTelemetry component = GameObject.Find("CarRoot").GetComponent<CarTelemetry>();
+        CameraSensor cameraSensor = GameObject.Find("CarCamera").GetComponent<CameraSensor>();
 
         Dictionary<string, object> record = new Dictionary<string,object>();
         record["velocity"] = new float[3] {component.velocity.x, component.velocity.y, component.velocity.z};
         record["acceleration"] = new float[3] {component.acceleration.x, component.acceleration.y, component.acceleration.z};
         record["wheelRpms"] = component.wheelRpms;
-
+        record["camera"] = cameraSensor.GetImageBytes();
         string payload = JsonConvert.SerializeObject(record);
 
         publisher.SendMoreFrame(topic).SendFrame(payload);

@@ -17,8 +17,13 @@ public class MenuSinglePlayer : MonoBehaviour
         
     }
 
-    public void LoadScene()
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene("Track1Race");
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void LoadScene2()
+    {
+        SceneManager.LoadScene("NewTrack");
     }
 }
