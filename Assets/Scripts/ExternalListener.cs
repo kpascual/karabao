@@ -2,11 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Newtonsoft.Json;
 using NetMQ;
 using NetMQ.Sockets;
 using System.Threading;
 
+
+[System.Serializable]
+public class ReceivedControls : UnityEvent<float, float>
+{
+}
 
 public class ExternalListener : MonoBehaviour
 {
@@ -17,6 +23,12 @@ public class ExternalListener : MonoBehaviour
     public string receivedMessage;
     public string host;
     public string port;
+
+
+    public float steering;
+    public float throttle;
+    public ReceivedControls receivedControls;
+
     void Start()
     {
         subscriber = new SubscriberSocket();
@@ -32,7 +44,7 @@ public class ExternalListener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        receivedControls?.Invoke(throttle, steering);
     }
 
 
@@ -42,9 +54,13 @@ public class ExternalListener : MonoBehaviour
             string message = subscriber.ReceiveFrameString();
 
             // Remove topic from message
-            int index = message.IndexOf(topic, StringComparison.Ordinal);
-            receivedMessage = (index < 0) ? message : message.Remove(index, topic.Length);
-            Debug.Log(receivedMessage);
+            int topicIndex = message.IndexOf(topic, StringComparison.Ordinal);
+            receivedMessage = (topicIndex < 0) ? message : message.Remove(topicIndex, topic.Length);
+            Dictionary<string, float> controlsDict = JsonConvert.DeserializeObject<Dictionary<string, float>>(receivedMessage);
+
+            steering = controlsDict["steering"];
+            throttle = controlsDict["throttle"];
         }
     }
 }
+
