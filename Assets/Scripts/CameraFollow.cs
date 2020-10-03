@@ -5,20 +5,14 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
 
-    public Transform player;
+    public GameObject cameraMountPoint;
     public Vector3 offset;
 
-    private Space offsetPositionSpace = Space.Self;
-    private Vector3 newPos;
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        if (offsetPositionSpace == Space.Self) 
-        {
-            newPos = new Vector3(offset.x, offset.y, offset.z);
-            transform.position = player.TransformPoint(newPos);
-        }
-        transform.LookAt(player);
-
+            Transform cameraTransform = Camera.main.gameObject.transform;  //Find main camera which is part of the scene instead of the prefab
+            cameraTransform.parent = cameraMountPoint.transform;  //Make the camera a child of the mount point
+            cameraTransform.position = cameraMountPoint.transform.position + offset;  //Set position/rotation same as the mount point
+            cameraTransform.rotation = cameraMountPoint.transform.rotation;
     }
 }

@@ -22,7 +22,7 @@ public class NetworkManagerRace : NetworkManager
     }
 
 
-    public override void OnServerDisconnect(NetworkConnection conn)
+    public override void OnClientDisconnect(NetworkConnection conn)
     {
         // Return camera to main place
         Transform cameraTransform = Camera.main.gameObject.transform;  //Find main camera which is part of the scene instead of the prefab
@@ -30,6 +30,6 @@ public class NetworkManagerRace : NetworkManager
         cameraTransform.position = cameraMountPoint.transform.position;  //Set position/rotation same as the mount point
         cameraTransform.rotation = cameraMountPoint.transform.rotation;
 
-        base.OnServerDisconnect(conn);
+        base.OnClientDisconnect(conn);
     }
 }

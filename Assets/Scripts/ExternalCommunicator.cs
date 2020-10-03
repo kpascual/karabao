@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
@@ -38,11 +39,12 @@ public class ExternalCommunicator : MonoBehaviour
     {
         CameraSensor cameraSensor = GameObject.Find("CarCamera").GetComponent<CameraSensor>();
 
+
         Dictionary<string, object> record = new Dictionary<string,object>();
         record["velocity"] = new float[3] {sensorData.velocity.x, sensorData.velocity.y, sensorData.velocity.z};
         record["acceleration"] = new float[3] {sensorData.acceleration.x, sensorData.acceleration.y, sensorData.acceleration.z};
         record["wheelRpms"] = sensorData.wheelRpms;
-        record["camera"] = cameraSensor.GetImageBytes();
+        record["camera"] = System.Convert.ToBase64String(cameraSensor.GetImageBytes());
         string payload = JsonConvert.SerializeObject(record);
 
         publisher.SendMoreFrame(topic).SendFrame(payload);
