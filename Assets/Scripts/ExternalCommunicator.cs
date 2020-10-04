@@ -11,7 +11,7 @@ public class ExternalCommunicator : MonoBehaviour
 
     private PublisherSocket publisher;
     private string topic = "telemetry";
-    public string host;
+    private string host;
     public string port;
     private SensorData sensorData;
 
@@ -19,7 +19,7 @@ public class ExternalCommunicator : MonoBehaviour
     void Start()
     {
         publisher = new PublisherSocket();
-        publisher.Bind("tcp://127.0.0.1:14623");
+        publisher.Bind($"tcp://{host}:{port}");
         
         sensorData = new SensorData();
     }

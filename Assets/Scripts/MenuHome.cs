@@ -14,9 +14,9 @@ public class MenuHome : MonoBehaviour
     {
         SceneManager.LoadScene("MultiplayerTrack");
     }
-    // Update is called once per frame
-    void Update()
+
+    public void QuitApplication() 
     {
-        
+        Application.Quit();
     }
 }

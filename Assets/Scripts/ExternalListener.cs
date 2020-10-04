@@ -21,7 +21,7 @@ public class ExternalListener : MonoBehaviour
     private string topic = "controls";
     private Thread thread;
     public string receivedMessage;
-    public string host;
+    private string host;
     public string port;
 
 
@@ -31,8 +31,9 @@ public class ExternalListener : MonoBehaviour
 
     void Start()
     {
+        host = "127.0.0.1";
         subscriber = new SubscriberSocket();
-        subscriber.Connect("tcp://127.0.0.1:14625");
+        subscriber.Connect($"tcp://{host}:{port}");
 
         subscriber.Subscribe(topic);
 

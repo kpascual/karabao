@@ -125,12 +125,12 @@ MonoBehaviour:
   sensorDataCollected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 492494429321613704}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 5527777631098813139}
+        m_MethodName: ListenCarSensor
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -149,15 +149,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receivedMessage: 
-  host: 
-  port: 
+  port: 14625
   steering: 0
   throttle: 0
   receivedControls:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 3300499462905596805}
+        m_MethodName: ListenExternalControlCommands
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -179,8 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382dbe5397bafaec4b379913e8e60740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  host: 
-  port: 
+  port: 14623
 --- !u!114 &400507155089326172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMountPoint: {fileID: 6301265318808715025}
-  offset: {x: 0, y: 3, z: -10}
+  offset: {x: 0, y: 4, z: -10}
 --- !u!1 &649719975925840753
 GameObject:
   m_ObjectHideFlags: 0

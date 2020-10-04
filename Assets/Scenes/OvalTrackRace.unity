@@ -274,32 +274,52 @@ PrefabInstance:
     - target: {fileID: 1609055677604387362, guid: 162f44f74ab3e0d6e9aff4638cf46828,
         type: 3}
       propertyPath: m_SuspensionSpring.spring
-      value: 4447.1016
+      value: 4447.101
       objectReference: {fileID: 0}
     - target: {fileID: 1609055677604387362, guid: 162f44f74ab3e0d6e9aff4638cf46828,
         type: 3}
       propertyPath: m_SuspensionSpring.damper
-      value: 711.53625
+      value: 711.5362
       objectReference: {fileID: 0}
     - target: {fileID: 3928119873127814701, guid: 162f44f74ab3e0d6e9aff4638cf46828,
         type: 3}
       propertyPath: m_SuspensionSpring.spring
-      value: 5315.874
+      value: 5315.8735
       objectReference: {fileID: 0}
     - target: {fileID: 3928119873127814701, guid: 162f44f74ab3e0d6e9aff4638cf46828,
         type: 3}
       propertyPath: m_SuspensionSpring.damper
-      value: 850.53986
+      value: 850.53973
+      objectReference: {fileID: 0}
+    - target: {fileID: 5527777631098813139, guid: 162f44f74ab3e0d6e9aff4638cf46828,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5785875742533990202, guid: 162f44f74ab3e0d6e9aff4638cf46828,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5785875742533990202, guid: 162f44f74ab3e0d6e9aff4638cf46828,
+        type: 3}
+      propertyPath: receivedControls.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 493693951}
+    - target: {fileID: 5785875742533990202, guid: 162f44f74ab3e0d6e9aff4638cf46828,
+        type: 3}
+      propertyPath: receivedControls.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ListenExternalControlCommands
       objectReference: {fileID: 0}
     - target: {fileID: 6452116499217670862, guid: 162f44f74ab3e0d6e9aff4638cf46828,
         type: 3}
       propertyPath: m_SuspensionSpring.damper
-      value: 888.5905
+      value: 888.59064
       objectReference: {fileID: 0}
     - target: {fileID: 6452116499217670862, guid: 162f44f74ab3e0d6e9aff4638cf46828,
         type: 3}
       propertyPath: m_SuspensionDistance
-      value: 0.19620001
+      value: 0.19620003
       objectReference: {fileID: 0}
     - target: {fileID: 6922900694132194486, guid: 162f44f74ab3e0d6e9aff4638cf46828,
         type: 3}
@@ -356,6 +376,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8129028010580685147, guid: 162f44f74ab3e0d6e9aff4638cf46828,
+        type: 3}
+      propertyPath: sensorDataCollected.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129028010580685147, guid: 162f44f74ab3e0d6e9aff4638cf46828,
+        type: 3}
+      propertyPath: sensorDataCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129028010580685147, guid: 162f44f74ab3e0d6e9aff4638cf46828,
+        type: 3}
+      propertyPath: sensorDataCollected.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129028010580685147, guid: 162f44f74ab3e0d6e9aff4638cf46828,
+        type: 3}
+      propertyPath: sensorDataCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2105355693}
+    - target: {fileID: 8129028010580685147, guid: 162f44f74ab3e0d6e9aff4638cf46828,
+        type: 3}
+      propertyPath: sensorDataCollected.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ListenSensorChanges
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129028010580685147, guid: 162f44f74ab3e0d6e9aff4638cf46828,
+        type: 3}
+      propertyPath: sensorDataCollected.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 162f44f74ab3e0d6e9aff4638cf46828, type: 3}
 --- !u!1 &493693945 stripped
@@ -364,6 +414,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 454031338}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &493693951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3300499462905596805, guid: 162f44f74ab3e0d6e9aff4638cf46828,
+    type: 3}
+  m_PrefabInstance: {fileID: 454031338}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493693945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1400b9337545ac0f0a00c8fad1b702ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &493693953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,6 +1245,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2105355693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9034386259028116593, guid: 7892e7f3195fead61b52fb390a605729,
+    type: 3}
+  m_PrefabInstance: {fileID: 9034386258780373967}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0373e65f4a9ba4e6287b673a92acfb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &473552959410104982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1442,11 +1516,16 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 493693951}
     - target: {fileID: 9034386260233994567, guid: 7892e7f3195fead61b52fb390a605729,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034386260233994567, guid: 7892e7f3195fead61b52fb390a605729,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetControl
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7892e7f3195fead61b52fb390a605729, type: 3}
