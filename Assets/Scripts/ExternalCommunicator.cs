@@ -18,6 +18,7 @@ public class ExternalCommunicator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        host = "127.0.0.1";
         publisher = new PublisherSocket();
         publisher.Bind($"tcp://{host}:{port}");
         

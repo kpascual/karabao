@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+
+
+[System.Serializable]
+public class LapEvent : UnityEvent<string>
+{
+}
 
 public class LapTimer : MonoBehaviour
 {
@@ -18,6 +25,7 @@ public class LapTimer : MonoBehaviour
     public GameObject startFinish;
     public GameObject[] checkpoints;
     private List<int> checkpointsLeft = new List<int>();
+    public LapEvent lapEvent;
     void Start()
     {
     }
@@ -27,9 +35,11 @@ public class LapTimer : MonoBehaviour
         startTime = Time.time;
         currentLapSplits = new List<float>();
         checkpointsLeft = checkpoints.Select(cp => cp.GetInstanceID()).ToList();
+
+        lapEvent?.Invoke("lap start - checkpoints left: " + checkpointsLeft.Count);
     }
 
-    public void CheckpointReached(int checkpointInstanceID) 
+    public void OnCheckpointReached(int checkpointInstanceID) 
     {
         if (checkpointsLeft.Contains(checkpointInstanceID))
         {
@@ -40,6 +50,8 @@ public class LapTimer : MonoBehaviour
 
             checkpointsLeft.RemoveAll(cp => cp == checkpointInstanceID);
             Debug.Log(string.Join(",", checkpointsLeft));
+
+            lapEvent?.Invoke("checkpoint reached! left: " + checkpointsLeft.Count);
         }
     }
     public void StartFinishReached() 
@@ -56,6 +68,7 @@ public class LapTimer : MonoBehaviour
 
             // Start a new lap
             StartLap();
+            lapEvent?.Invoke("last lap: " + lastLapTime.ToString());
 
             // Ensure lap time history is being recorded properly
             string dlaptimes = string.Join(",", lapTimeHistory);
